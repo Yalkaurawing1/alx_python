@@ -2,4 +2,8 @@
 
 
 def convert_to_celsius(fahrenheit):
-    return( convert_to_celsius)
+    celsius = (fahrenheit - 32) * 5/9
+    return celsius
+
+
+
