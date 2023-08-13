@@ -1,15 +1,9 @@
 #!/usr/bin/python3
 
-def add(a, b):
-    """My addition function
+from add_0 import add
 
-    Args:
-        a: first integer
-        b: second integer
+a = 1
 
-    Returns:
-        The return value. a + b
-    """
-    return (a + b)
+b = 2
 
-print(add( 1 , 2))
+print(f"{a} + {b} = {add(a,b)}")
