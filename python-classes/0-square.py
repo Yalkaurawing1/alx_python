@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-# 0-square.py
-"""Define a class Square."""
+'''Defining a square with size specified'''
 
 
 class Square:
-    """Represent a square."""
-    pass
+    '''defines a square based on previous class definition'''
+    def __init__(self, size):
+        self.__size = size
