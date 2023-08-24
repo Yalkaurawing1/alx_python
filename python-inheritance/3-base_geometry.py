@@ -2,7 +2,6 @@
 
 """ base geometry class """
 
-class basegeomerty:
+class basegeomerty:   
+ 
     pass
-
-"""nothing but pass by"""
