@@ -12,7 +12,7 @@ bg = BaseGeometry()
 
 """ Try to call the area method """
 try:
-    bg.area()
+    print(bg.area())        
 except Exception as e:
     """ Print the exception message """
     print("[{}] {}".format(e.self.area, e))
