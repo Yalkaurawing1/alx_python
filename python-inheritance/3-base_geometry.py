@@ -10,3 +10,12 @@ class BaseGeometry:
 
 """ Creating an instance if geometry """
 bg = BaseGeometry()
+
+# Print the instance
+print(bg)
+
+# Print the list of attributes and methods of the instance
+print(dir(bg))
+
+# Print the list of attributes and methods of the class
+print(dir(BaseGeometry))
