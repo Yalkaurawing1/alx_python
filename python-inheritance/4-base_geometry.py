@@ -1,9 +1,10 @@
-#!usr/bin/python3
+#!/usr/bin/python3
+"""Defines a base geometry class BaseGeometry."""
 
-""" base geometry class """
+
 class BaseGeometry:
-    """ Define a public instance method called area """
+    """Rep base geometry."""
+
     def area(self):
-        """ Raise an Exception with the message area() is not implemented  """
-        raise Exception("area() is not implemented")      
-     
+        """Not implemented."""
+        raise Exception("area() is not implemented")
