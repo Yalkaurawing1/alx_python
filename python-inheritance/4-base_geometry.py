@@ -15,4 +15,4 @@ try:
     bg.area()
 except Exception as e:
     # Print the exception message
-    print(e)
+    print("[{}] {}".format(e.bg.area, e))
