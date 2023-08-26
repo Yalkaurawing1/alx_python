@@ -1,5 +1,9 @@
-#!usr/bin/python3
-""" Define an empty class BaseGeometry """
+#!/usr/bin/python3
+"""
+This contains the class BaseGeometry
+"""
+
+
 class BaseGeometry:
-    """ Use pass statement to indicate no content """
-    bg=BaseGeometry()
+    """I do nothing but pass-by"""
+    pass
