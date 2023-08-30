@@ -4,5 +4,7 @@
 
 class BaseGeometry:
     """An Empty class defined"""
-
     pass
+""" creating an instance of the class """
+
+bg = BaseGeometry()
