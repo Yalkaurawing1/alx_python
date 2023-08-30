@@ -3,8 +3,9 @@
 
 
 class BaseGeometry:
+    bg = BaseGeometry
     """An Empty class defined"""
-    def __init__(self):
-        pass
+    pass
+
 
     
