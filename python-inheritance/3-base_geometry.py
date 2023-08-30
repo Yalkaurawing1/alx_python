@@ -3,9 +3,6 @@
 
 
 class BaseGeometry:
-    bg = BaseGeometry
     """An Empty class defined"""
+
     pass
-
-
-    
