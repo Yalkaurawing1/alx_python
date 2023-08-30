@@ -1,14 +1,8 @@
 #!/usr/bin/python3
-"""
-This contains the class BaseGeometry
-"""
+""" An Empty class """
 
 
 class BaseGeometry:
-    """I do nothing but pass-by"""
+    """An Empty class defined"""
 
-bg = BaseGeometry()
-
-print(bg)
-print(dir(bg))
-print(dir(BaseGeometry))
+    pass
