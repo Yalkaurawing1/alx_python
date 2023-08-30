@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Importing from 7's BaseGeometry"""
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+"""Importing from 5's BaseGeometry"""
+BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
