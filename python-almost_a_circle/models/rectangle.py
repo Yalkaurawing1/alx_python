@@ -179,12 +179,16 @@ class Rectangle(Base):
 
          Prints in stdout the Rectangle instance with the character #.
          """
+         # Print y number of newlines before the rectangle
+     print("\n" * self.__y, end="")
 
          # Loop through the height of the rectangle
-        for i in range(self.__height):
+         for i in range(self.__height):
+             # Print x number of spaces before the rectangle
+             print(" " * self.__x, end="")
              # Print a row of # characters with the width of the rectangle
              print("#" * self.__width)
-
+             
     def __str__(self):
         """A magic method that returns a string representation of the rectangle.
 
