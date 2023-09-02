@@ -173,3 +173,15 @@ class Rectangle(Base):
 
          # Calculate and return the area as width times height
          return self.__width * self.__height
+
+    def display(self):
+        """A public method that prints the rectangle with the character #.
+
+         Prints in stdout the Rectangle instance with the character #.
+         """
+
+         # Loop through the height of the rectangle
+        for i in range(self.__height):
+             # Print a row of # characters with the width of the rectangle
+             print("#" * self.__width)
+     
