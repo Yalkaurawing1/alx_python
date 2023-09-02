@@ -2,6 +2,8 @@
 """CLass Rectangle"""
 # models/rectangle.py
 
+# models/rectangle.py
+
 from models.base import Base
 
 class Rectangle(Base):
@@ -16,6 +18,10 @@ class Rectangle(Base):
             x (int, optional): The horizontal position of the rectangle. Defaults to 0.
             y (int, optional): The vertical position of the rectangle. Defaults to 0.
             id (int, optional): The id of the object. Defaults to None.
+
+        Raises:
+            TypeError: If any of the arguments are not integers.
+            ValueError: If width or height are less than or equal to 0, or x or y are less than 0.
         """
 
         # Call the super class with id
@@ -43,8 +49,21 @@ class Rectangle(Base):
 
         Args:
             value (int): The new value for the width attribute.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than or equal to 0.
         """
 
+        # Check if value is an integer
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
+
+        # Check if value is positive
+        if value <= 0:
+            raise ValueError("width must be > 0")
+
+        # Assign value to the private attribute
         self.__width = value
 
     @property
@@ -63,8 +82,21 @@ class Rectangle(Base):
 
         Args:
             value (int): The new value for the height attribute.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than or equal to 0.
         """
 
+        # Check if value is an integer
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
+
+        # Check if value is positive
+        if value <= 0:
+            raise ValueError("height must be > 0")
+
+        # Assign value to the private attribute
         self.__height = value
 
     @property
@@ -83,8 +115,21 @@ class Rectangle(Base):
 
         Args:
             value (int): The new value for the x attribute.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than 0.
         """
 
+        # Check if value is an integer
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
+
+        # Check if value is non-negative
+        if value < 0:
+            raise ValueError("x must be >= 0")
+
+        # Assign value to the private attribute
         self.__x = value
 
     @property
@@ -103,6 +148,19 @@ class Rectangle(Base):
 
         Args:
             value (int): The new value for the y attribute.
-        """
 
+         Raises:
+             TypeError: If value is not an integer.
+             ValueError: If value is less than 0.
+         """
+
+         # Check if value is an integer
+        if not isinstance(value, int):
+             raise TypeError("y must be an integer")
+
+         # Check if value is non-negative
+        if value < 0:
+            raise ValueError("y must be >= 0")
+
+         # Assign value to the private attribute
         self.__y = value
