@@ -164,3 +164,12 @@ class Rectangle(Base):
 
          # Assign value to the private attribute
         self.__y = value
+    def area(self):
+         """A public method that returns the area of the rectangle.
+
+         Returns:
+             int: The area of the rectangle.
+         """
+
+         # Calculate and return the area as width times height
+         return self.__width * self.__height
