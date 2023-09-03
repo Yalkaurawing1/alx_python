@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+"""This module defines a base model class."""
 # models/rectangle.py
 
 from models.base import Base
