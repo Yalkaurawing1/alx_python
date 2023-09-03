@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-"""CLass Rectangle"""
-# models/rectangle.py
-
 # models/rectangle.py
 
 from models.base import Base
@@ -70,9 +66,9 @@ class Rectangle(Base):
     def height(self):
         """A getter for the height attribute.
 
-        Returns:
-            int: The height of the rectangle.
-        """
+         Returns:
+             int: The height of the rectangle.
+         """
 
         return self.__height
 
@@ -80,90 +76,91 @@ class Rectangle(Base):
     def height(self, value):
         """A setter for the height attribute.
 
-        Args:
-            value (int): The new value for the height attribute.
+         Args:
+             value (int): The new value for the height attribute.
 
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
-        """
+          Raises:
+              TypeError: If value is not an integer.
+              ValueError: If value is less than or equal to 0.
+         """
 
-        # Check if value is an integer
+          # Check if value is an integer
         if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+           raise TypeError("height must be an integer")
 
-        # Check if value is positive
+          # Check if value is positive
         if value <= 0:
             raise ValueError("height must be > 0")
 
-        # Assign value to the private attribute
+          # Assign value to the private attribute
         self.__height = value
 
     @property
     def x(self):
         """A getter for the x attribute.
 
-        Returns:
-            int: The horizontal position of the rectangle.
-        """
+         Returns:
+             int: The horizontal position of the rectangle.
+         """
 
         return self.__x
 
     @x.setter
     def x(self, value):
-        """A setter for the x attribute.
+         """A setter for the x attribute.
 
-        Args:
-            value (int): The new value for the x attribute.
+         Args:
+             value (int): The new value for the x attribute.
 
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than 0.
-        """
+          Raises:
+              TypeError: If value is not an integer.
+              ValueError: If value is less than 0.
+          """
 
-        # Check if value is an integer
-        if not isinstance(value, int):
+          # Check if value is an integer
+         if not isinstance(value, int):
             raise TypeError("x must be an integer")
 
-        # Check if value is non-negative
-        if value < 0:
-            raise ValueError("x must be >= 0")
+          # Check if value is non-negative
+         if value < 0:
+              raise ValueError("x must be >= 0")
 
-        # Assign value to the private attribute
-        self.__x = value
+          # Assign value to the private attribute
+         self.__x = value
 
     @property
     def y(self):
         """A getter for the y attribute.
 
-        Returns:
-            int: The vertical position of the rectangle.
-        """
+         Returns:
+             int: The vertical position of the rectangle.
+         """
 
         return self.__y
 
     @y.setter
     def y(self, value):
-        """A setter for the y attribute.
+         """A setter for the y attribute.
 
-        Args:
-            value (int): The new value for the y attribute.
+         Args:
+             value (int): The new value for the y attribute.
 
-         Raises:
-             TypeError: If value is not an integer.
-             ValueError: If value is less than 0.
-         """
+          Raises:
+              TypeError: If value is not an integer.
+              ValueError: If value is less than 0.
+          """
 
-         # Check if value is an integer
-        if not isinstance(value, int):
-             raise TypeError("y must be an integer")
+          # Check if value is an integer
+         if not isinstance(value, int):
+              raise TypeError("y must be an integer")
 
-         # Check if value is non-negative
-        if value < 0:
-            raise ValueError("y must be >= 0")
+          # Check if value is non-negative
+         if value < 0:
+              raise ValueError("y must be >= 0")
 
-         # Assign value to the private attribute
-        self.__y = value
+          # Assign value to the private attribute
+         self.__y = value
+
     def area(self):
          """A public method that returns the area of the rectangle.
 
@@ -175,19 +172,18 @@ class Rectangle(Base):
          return self.__width * self.__height
 
     def display(self):
-        """A public method that prints the rectangle with the character #.
+         """A public method that prints the rectangle with the character #.
 
-         Prints in stdout the Rectangle instance with the character #.
+         Prints in stdout the Rectangle instance with the character # by taking care of x and y.
          """
-         # Print y number of newlines before the rectangle
-        print("" * self.__y, end="")
 
+         # Print y number of newlines before the rectangle
+         print("\n" * self.__y, end="")
 
          # Loop through the height of the rectangle
-        for i in range(self.__height):
-                         # Print x number of spaces before the rectangle
+         for i in range(self.__height):
+             # Print x number of spaces before the rectangle
              print(" " * self.__x, end="")
-
              # Print a row of # characters with the width of the rectangle
              print("#" * self.__width)
 
@@ -198,8 +194,5 @@ class Rectangle(Base):
             str: A string in the format [Rectangle] (<id>) <x>/<y> - <width>/<height>.
         """
 
-
         # Return a formatted string with the attributes of the rectangle
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
-
-     
