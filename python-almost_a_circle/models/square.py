@@ -3,6 +3,7 @@
 
 # models/square.py
 """This module inherite from  rectangle model class."""
+
 from models.rectangle import Rectangle
 
 class Square(Rectangle):
