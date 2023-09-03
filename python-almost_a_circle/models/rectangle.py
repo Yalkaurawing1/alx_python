@@ -199,7 +199,7 @@ class Rectangle(Base):
         # Return a formatted string with the attributes of the rectangle
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """A public method that assigns an argument to each attribute.
 
         Args:
@@ -210,8 +210,12 @@ class Rectangle(Base):
         3rd argument should be the height attribute
         4th argument should be the x attribute
         5th argument should be the y attribute
+        
+        **kwargs can be thought of as a double pointer to a dictionary: key/value
+        As Python doesn't have pointers, **kwargs is not literally a double pointer – describing it as such is just a way of explaining its behavior in terms you’re already familiar with
+        **kwargs must be skipped if *args exists and is not empty
+        Each key in this dictionary represents an attribute to the instance
         """
-
         # A list of attributes to update in order
         attributes = ["id", "width", "height", "x", "y"]
 
@@ -221,3 +225,10 @@ class Rectangle(Base):
             if i < len(attributes):
                 # Set the attribute with the argument value using setattr
                 setattr(self, attributes[i], arg)
+        else:
+            # Loop through the key/value pairs in kwars
+            for key, value in kwargs.items():
+                # Check if the key is valid atterabute name
+                if key in attributes:
+                    setattr(self, key, value)
+           
