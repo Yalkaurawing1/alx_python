@@ -198,3 +198,26 @@ class Rectangle(Base):
 
         # Return a formatted string with the attributes of the rectangle
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        """A public method that assigns an argument to each attribute.
+
+        Args:
+            args (tuple): A variable-length tuple of arguments.
+
+        1st argument should be the id attribute
+        2nd argument should be the width attribute
+        3rd argument should be the height attribute
+        4th argument should be the x attribute
+        5th argument should be the y attribute
+        """
+
+        # A list of attributes to update in order
+        attributes = ["id", "width", "height", "x", "y"]
+
+        # Loop through the arguments and assign them to the corresponding attributes
+        for i, arg in enumerate(args):
+            # Check if the index is within the range of attributes
+            if i < len(attributes):
+                # Set the attribute with the argument value using setattr
+                setattr(self, attributes[i], arg)
