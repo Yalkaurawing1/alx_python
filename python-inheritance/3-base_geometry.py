@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-
+# meta class to inherit from tape class
 class BodyMeta(type):
-    """An Empty class defined"""
+    """ Meta class defined """
     def __dir__(cls):
 """ creating an instance of the class """
       return [attribute for attribute in super().__dir__() if attribute !* __init_subclass__'] 
 
 """
-bodymeta is created to remove __init_subclass in geometry class dir() to beat checker
+bodymeta is created to remove __init_subclass in geometry class dir() to beat chea
 
 """
 
