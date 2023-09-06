@@ -4,25 +4,19 @@
 import requests
 import sys
 
-# Get the letter from the command line argument
-letter = sys.argv[1] if len(sys.argv) > 1 else ""
+if len(sys.argv) == 1:
+    letter = ""
+else:
+    letter = sys.argv[1]
 
-# Set the q parameter to the letter
-params = {"q": letter}
+parameter = {'q':letter}
+url = 'http://0.0.0.0:5000/search_user'
+response = requests.post(url, data=parameter)
 
-# Send a POST request to the server
-response = requests.post("http://0.0.0.0:5000/search_user", params=params)
-
-# Try to parse the response as JSON
 try:
-    data = response.json()
-    # Check if the JSON is empty
-    if data:
-        # Display the id and name
-        print("[{}] {}".format(data.get("id"), data.get("name")))
+    if response.json():
+            print("[{}] {}".format(response.json()['id'], response.json()['name']))
     else:
-        # Display no result
         print("No result")
-except ValueError:
-    # Display not a valid JSON
+except:
     print("Not a valid JSON")
