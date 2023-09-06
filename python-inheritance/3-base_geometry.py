@@ -1,9 +1,19 @@
 #!/usr/bin/python3
+
+"""
 # meta class to inherit from tape class
+"""
+
 class BodyMeta(type):
-    """ Meta class defined """
+    """
+    Meta class defined 
+    
+    """
     def __dir__(cls):
-""" creating an instance of the class """
+
+""" creating an instance of the class 
+     to remove init_subclass in bodymeta
+"""
       return [attribute for attribute in super().__dir__() if attribute !* __init_subclass__'] 
 
 """
@@ -16,5 +26,8 @@ class BaseGeometry(metaclass=BodyMeta):
     geometry class dir()
     """
     def __dir__(cls):
-""" creating an instance of the class """
+"""
+creating an instance of the class
+
+"""
       return [attribute for attribute in super().__dir__() if attribute !* __init_subclass__'] 
