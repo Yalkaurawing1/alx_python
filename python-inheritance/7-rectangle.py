@@ -3,7 +3,7 @@
 Contains the class BaseGeometry and subclass Rectangle
 """
 
-class OverrideMetaClass(type):
+class BodyMetaClass(type):
     """def __new__(cls, name, bases, attrs):
         # Customize the class creation process here
         return super().__new__(cls, name, bases, attrs)"""
@@ -17,7 +17,7 @@ class OverrideMetaClass(type):
                 super().__dir__() if attribute != '__init_subclass__']
     
 
-class BaseGeometry(metaclass=OverrideMetaClass):
+class BaseGeometry(metaclass=BodyMetaClass):
     """
     This class models an empty class
     """
@@ -45,7 +45,7 @@ class BaseGeometry(metaclass=OverrideMetaClass):
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
 
-class Rectangle(BaseGeometry, metaclass=OverrideMetaClass):
+class Rectangle(BaseGeometry, metaclass=BodyMetaClass):
     """
     Models a rectangle. A derived class of BaseGeometgry
     """
