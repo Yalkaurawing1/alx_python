@@ -1,8 +1,13 @@
 #!/usr/bin/python3
 # This script lists all states from the database hbtn_0e_0_usa
 
-# Import the MySQLdb module
-import MySQLdb
+# if name = main
+if __name__ == "__main__":
+    # Import the MySQLdb module
+    import MySQLdb
+    # Import the sys module
+    import sys
+
 
 # Get the arguments from the command line
 username = sys.argv[1]
@@ -10,7 +15,7 @@ password = sys.argv[2]
 database = sys.argv[3]
 
 # Connect to the MySQL server on localhost at port 3306
-db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=hbtn_0e_0_usa)
+connector = MySQLdb.connect(user=username, passwd=password, db=hbtn_0e_0_usa)
 
 # Create a cursor object to execute queries
 cur = db.cursor()
