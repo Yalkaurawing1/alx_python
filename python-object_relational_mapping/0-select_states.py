@@ -18,10 +18,10 @@ database = sys.argv[3]
 connector = MySQLdb.connect(user=username, passwd=password, db=hbtn_0e_0_usa)
 
 # Create a cursor object to execute queries
-cur = db.cursor()
+cur = connector.cursor()
 
 # Execute a query to select all states from the states table
-cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+cur.execute("SELECT * FROM states")
 
 # Fetch all the results as a list of tuples
 rows = cur.fetchall()
