@@ -18,8 +18,7 @@ if __name__ == "__main__":
     db_cur = connector.cursor()
 
     state_search = sys.argv[4]
-    query = "SELECT * FROM states \
-            WHERE name = %(state_key)s"
+    query = "SELECT * FROM states \ WHERE name = %(state_key)s"
     db_cur.execute(query, {'state_key': state_search})
     states_data = db_cur.fetchall()
 
