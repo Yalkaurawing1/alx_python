@@ -24,4 +24,4 @@ if __name__ == "__main__":
     db_cur.execute(query, {'state_key': state_search})
     states_data = db_cur.fetchall()
 for data in states_data:
-  print(data)
+    print(data)
