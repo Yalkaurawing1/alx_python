@@ -7,10 +7,13 @@ hbtn_0e_0_usa where name matches the argument. But this time, write one that is 
 import MySQLdb
 import sys
 
-def safe_query(database, state_name):
+
+def safe_query(username, password, database, state_name):
     try:
         # Connect to MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1], passwd=sys.argv[2], db=database)
+        db = MySQLdb.connect(
+            host="localhost", port=3306, user=username, passwd=password, db=database
+        )
 
         # Create a cursor object
         cursor = db.cursor()
@@ -35,11 +38,14 @@ def safe_query(database, state_name):
     except MySQLdb.Error as e:
         print("Error connecting to MySQL:", e)
 
-# Check if the script is being run directly
+
+# Check if the script is not being imported
 if __name__ == "__main__":
     # Check if all 4 arguments are provided
-    if len(sys.argv) == 5:
+    if len(sys.argv) == 6:
         # Call the safe_query function with the arguments
-        safe_query(sys.argv[3], sys.argv[4])
+        safe_query(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
     else:
-        print("Please provide the required arguments: username, password, database name, and state name to be searched.")
+        print(
+            "Please provide the required arguments: MySQL username, MySQL password, database name, and state name to be searched."
+        )
