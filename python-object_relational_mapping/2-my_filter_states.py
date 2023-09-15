@@ -1,37 +1,25 @@
 #!/usr/bin/python3
 # This script takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument
 if __name__ == "__main__":
-# Import the MySQLdb module and the sys module
- import MySQLdb
- import sys
+    import MySQLdb
+    import sys
 
-# Get the arguments from the command line
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
-state_name = sys.argv[4]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-# Connect to the MySQL server on localhost at port 3306
-connector = MySQLdb.connect(user=username, passwd=password, db=database)
+    # Connect to the database
+    connector = MySQLdb.connect(user=username, passwd=password, db=database)
 
-# Create a cursor object to execute queries
-cur = connector.cursor()
+    # a cursor to manipulate the database
+    cur = connector.cursor()
 
-cur.execute("USE test_2")
+    2-cur.execute("USE test_2")
+    state_search = sys.argv[4]
+    query = "SELECT * FROM states \
+            WHERE name COLLATE utf8mb4_bin LIKE '{}%'".format(state_search)
+    db_cur.execute(query)
+    states_data = db_cur.fetchall()
 
-# Use format to create the SQL query with the user input
-query = "SELECT * FROM states WHERE name LIKE '{}' ORDER BY states.id ASC".format(state_name)
-
-# Execute the query
-cur.execute(query)
-
-# Fetch all the results as a list of tuples
-state_name = cur.fetchall()
-
-# Loop through each row and print it
-for state in states_name:
-    print(state)
-
-# Close the cursor and the database connection
-cur.close()
-connector.close()
+    for data in states_data:
+        print(data)
