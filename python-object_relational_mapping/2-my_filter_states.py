@@ -17,6 +17,8 @@ connector = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=p
 # Create a cursor object to execute queries
 cur = connector.cursor()
 
+cur.execute("USE test_2")
+
 # Use format to create the SQL query with the user input
 query = "SELECT * FROM states WHERE name LIKE '{}' ORDER BY states.id ASC".format(state_name)
 
