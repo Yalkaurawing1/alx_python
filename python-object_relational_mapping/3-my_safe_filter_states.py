@@ -5,6 +5,8 @@ argument. But this time, write one
 that is safe from MySQL injections!
 """
 if __name__ == "__main__":
+    
+    # importing modules mysql db & sys
     import MySQLdb
     import sys
 
@@ -13,7 +15,7 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     # Connect to the database
-    connector = MySQLdb.connect(user=username,passwd=password, db=database)
+    connector = MySQLdb.connect(user=username, passwd=password, db=database)
     # a cursor to manipulate the database
     db_cur = connector.cursor()
 
