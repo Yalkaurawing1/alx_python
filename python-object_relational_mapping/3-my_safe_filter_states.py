@@ -1,6 +1,9 @@
 """ 
-a script that takes in arguments and displays all values in the states table of
-hbtn_0e_0_usa where name matches the argument. But this time, write one that is safe from MySQL injections!
+a script that takes in arguments and displays
+all values in the states table of
+hbtn_0e_0_usa where name matches the
+argument. But this time, write one 
+that is safe from MySQL injections!
 
 """
 if __name__ == "__main__":
@@ -12,7 +15,8 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     # Connect to the database
-    connector = MySQLdb.connect(user=username, passwd=password, db=database)
+    connector = MySQLdb.connect(user=username,
+    passwd=password, db=database)
     # a cursor to manipulate the database
     db_cur = connector.cursor()
 
