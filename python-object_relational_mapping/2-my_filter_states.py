@@ -27,7 +27,7 @@ cur.execute(query)
 rows = cur.fetchall()
 
 # Loop through each row and print it
-for name in names:
+for state in states:
     print(data)
 
 # Close the cursor and the database connection
