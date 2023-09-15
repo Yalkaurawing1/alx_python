@@ -14,12 +14,12 @@ if __name__ == "__main__":
     # a cursor to manipulate the database
     cur = connector.cursor()
 
-    2-cur.execute("USE test_2")
+    cur.execute("USE test_2")
     state_search = sys.argv[4]
     query = "SELECT * FROM states \
             WHERE name COLLATE utf8mb4_bin LIKE '{}%'".format(state_search)
-    db_cur.execute(query)
-    states_data = db_cur.fetchall()
+    cur.execute(query)
+    states_data = cur.fetchall()
 
     for data in states_data:
         print(data)
