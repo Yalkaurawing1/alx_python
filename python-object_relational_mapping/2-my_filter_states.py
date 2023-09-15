@@ -12,7 +12,7 @@ database = sys.argv[3]
 state_name = sys.argv[4]
 
 # Connect to the MySQL server on localhost at port 3306
-connector = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+connector = MySQLdb.connect(user=username, passwd=password, db=database)
 
 # Create a cursor object to execute queries
 cur = connector.cursor()
