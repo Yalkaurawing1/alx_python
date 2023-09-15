@@ -24,12 +24,12 @@ query = "SELECT * FROM states WHERE name LIKE '{}' ORDER BY states.id ASC".forma
 cur.execute(query)
 
 # Fetch all the results as a list of tuples
-state = cur.fetchall()
+state_name = cur.fetchall()
 
 # Loop through each row and print it
-for state in states:
-    print(data)
+for state in states_name:
+    print(state)
 
 # Close the cursor and the database connection
 cur.close()
-db.close()
+connector.close()
