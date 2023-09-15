@@ -23,7 +23,5 @@ if __name__ == "__main__":
         WHERE name = %(state_key)s"
     db_cur.execute(query, {'state_key': state_search})
     states_data = db_cur.fetchall()
-
 for data in states_data:
- 
     print(data)
