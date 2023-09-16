@@ -3,8 +3,16 @@ a state as an argument and lists all
 cities of that state, using the
 database hbtn_0e_4_usa
 """
-import MySQLdb
-import sys
+if __name__ == '__main__':
+    # Get the command-line arguments
+    username, password, database, state = sys.argv[1:]
+
+    # Call the function to retrieve cities by state
+    get_cities_by_state(username, password, database, state)
+
+
+    import MySQLdb
+    import sys
 
 def get_cities_by_state(username, password, database, state):
     # Connect to the MySQL server
@@ -31,9 +39,3 @@ def get_cities_by_state(username, password, database, state):
     cursor.close()
     db.close()
 
-if __name__ == '__main__':
-    # Get the command-line arguments
-    username, password, database, state = sys.argv[1:]
-
-    # Call the function to retrieve cities by state
-    get_cities_by_state(username, password, database, state)
