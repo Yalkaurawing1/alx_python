@@ -25,6 +25,5 @@ if __name__ == "__main__":
     cur.execute(query)
     states_data = cur.fetchall()
 
-    for data in states_data:
-        print(data)
-        
+for data in states_data:
+    print(data)
