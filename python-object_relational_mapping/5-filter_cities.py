@@ -8,7 +8,7 @@ import sys
 
 def get_cities_by_state(username, password, database, state):
     # Connect to the MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306, user=username,passwd=password, db=database)
 
     # Create a cursor object to execute queries
     cursor = db.cursor()
