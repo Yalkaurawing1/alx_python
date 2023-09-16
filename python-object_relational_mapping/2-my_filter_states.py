@@ -26,3 +26,4 @@ if __name__ == "__main__":
     states_data = cur.fetchall()
 
     for data in states_data:
+        print(data)
