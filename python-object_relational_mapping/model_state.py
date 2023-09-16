@@ -1,5 +1,5 @@
-"""a python file that contains the 
-class definition of a State and an 
+"""a python file that contains the
+class definition of a State and an
 instance Base = declarative_base():
 """
 
@@ -29,3 +29,4 @@ class State(Base):
 
     def __init__(self, name):
         self.name = name
+        
