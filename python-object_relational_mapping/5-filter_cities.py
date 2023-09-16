@@ -3,39 +3,27 @@ a state as an argument and lists all
 cities of that state, using the
 database hbtn_0e_4_usa
 """
-if __name__ == '__main__':
-    # Get the command-line arguments
-    username, password, database, state = sys.argv[1:]
-
-    # Call the function to retrieve cities by state
-    get_cities_by_state(username, password, database, state)
-
-
+if __name__ == "__main__":
     import MySQLdb
     import sys
 
-def get_cities_by_state(username, password, database, state):
-    # Connect to the MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username,passwd=password, db=database)
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_searched = sys.argv[4]
 
-    # Create a cursor object to execute queries
-    cursor = db.cursor()
+    # Connect to the database
+    connector = MySQLdb.connect(user=username, passwd=password, db=database)
 
-    # Execute the SQL query to retrieve cities
+    # a cursor to manipulate the database
+    cursor = connector.cursor()
     cursor.execute("""SELECT name
                    FROM cities
                    WHERE state_id =
                     (SELECT id FROM states
                     WHERE name COLLATE utf8mb4_bin LIKE '{}%')
-                   ORDER BY id ASC""".format(state))
-    # Fetch all the rows from the query result
-    rows = cursor.fetchall()
+                   ORDER BY id ASC""".format(state_searched))
+    states_data = cursor.fetchall()
 
-    # Display the results
-    for row in rows:
-        print(row)
-
-    # Close the cursor and database connection
-    cursor.close()
-    db.close()
-
+    cities = ', '.join(data[0] for data in states_data)
+    print(cities)
