@@ -14,7 +14,7 @@ def get_cities_by_state(username, password, database, state):
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve cities
-    dcursor.execute("""SELECT name
+    cursor.execute("""SELECT name
                    FROM cities
                    WHERE state_id =
                     (SELECT id FROM states
