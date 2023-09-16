@@ -18,5 +18,5 @@ if __name__ == "__main__":
                    WHERE states.id = state_id ORDER BY cities.id")
     states_data = db_cur.fetchall()
 
-    for data in states_data:
-        print(data)
+for data in states_data:
+    print(data)
