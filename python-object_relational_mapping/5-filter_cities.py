@@ -14,11 +14,12 @@ def get_cities_by_state(username, password, database, state):
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve cities
-    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities \
-                    INNER JOIN states ON cities.state_id = states.id \
-                    WHERE states.name = %s \
-                    ORDER BY cities.id ASC", (state,))
-
+    dcursor.execute("""SELECT name
+                   FROM cities
+                   WHERE state_id =
+                    (SELECT id FROM states
+                    WHERE name COLLATE utf8mb4_bin LIKE '{}%')
+                   ORDER BY id ASC""".format(state))
     # Fetch all the rows from the query result
     rows = cursor.fetchall()
 
