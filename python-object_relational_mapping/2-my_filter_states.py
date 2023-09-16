@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-# This script takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument
+"""This script takes in an argument
+and displays all values in the states
+table of hbtn_0e_0_usa where name matches
+the argument
+"""
 if __name__ == "__main__":
     import MySQLdb
     import sys
@@ -22,4 +26,3 @@ if __name__ == "__main__":
     states_data = cur.fetchall()
 
     for data in states_data:
-        print(data)
