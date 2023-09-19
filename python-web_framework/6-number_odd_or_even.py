@@ -54,9 +54,9 @@ def number_template(n):
 def number_odd_or_even(n):
     # Check if n is odd or even
     if n % 2 == 0:
-        parity = 'even'
-    else:
-        parity = 'odd'
+        parity = 'is even'
+    elif n % 2 != 0:
+        parity = 'is odd'
     # Render the HTML template with n and parity as parameters
     return render_template('6-number_odd_or_even.html', n=n, parity=parity)
 
