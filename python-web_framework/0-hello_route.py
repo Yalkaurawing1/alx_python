@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-# Import Flask
 from flask import Flask
-
+""" Import Flask
+"""
 # Create an instance of Flask
 app = Flask(__name__)
 
