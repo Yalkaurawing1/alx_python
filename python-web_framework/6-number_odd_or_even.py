@@ -47,7 +47,7 @@ def number(n):
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def number_template(n):
     # Render the HTML template with n as a parameter
-    return render_template('number.html', n=n)
+    return render_template('5-number.html', n=n)
 
 # Define the route for /number_odd_or_even/<n>
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
@@ -58,7 +58,7 @@ def number_odd_or_even(n):
     else:
         parity = 'odd'
     # Render the HTML template with n and parity as parameters
-    return render_template('number_odd_or_even.html', n=n, parity=parity)
+    return render_template('6-number_odd_or_even.html', n=n, parity=parity)
 
 # Run the app if this file is executed
 if __name__ == '__main__':
