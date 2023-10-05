@@ -4,6 +4,7 @@ This module uses a REST API to get information
 about an employee's TODO list progress
 and export it in the CSV format.
 """
+
 import csv
 import requests
 import sys
