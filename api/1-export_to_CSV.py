@@ -10,10 +10,11 @@ import requests
 import sys
 
 if __name__ == "__main__":
-
-# Get the employee ID from the parameter
+    
+# Pass employee id on command line
     id = sys.argv[1]
-# Define the base URL for the API
+
+# APIs 
     userTodoURL = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
     userProfile = "https://jsonplaceholder.typicode.com/users/{}".format(id)
 
