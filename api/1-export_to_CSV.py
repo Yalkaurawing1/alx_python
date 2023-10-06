@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-This module uses a REST API to get information about an employee's TODO list progress and export it in the CSV format.
+This module uses a REST API to get information
+about an employee's TODO list progress
+and export it in the CSV format.
 """
-
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     # Check if the script receives an integer as a parameter
