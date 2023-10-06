@@ -1,14 +1,14 @@
-#!/usr/bin/python3
 """
-This module uses a REST API to get information
-about an employee's TODO list progress
-and export it in the CSV format.
-"""
+This script uses an API to retrieve employee task information
+and display in a special format.
 
+It retrieves employees name, task completed with their titles.
+"""
 import csv
 import requests
 import sys
 
+# No execution of this file when imported
 if __name__ == "__main__":
     
 # Pass employee id on command line
