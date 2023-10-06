@@ -1,51 +1,47 @@
+#!/usr/bin/python3
 """
-This script uses an API to retrieve employee task information
-and display in a special format.
+This module uses a REST API to get information about an employee's TODO list progress and export it in the CSV format.
+"""
 
-It retrieves employees name, task completed with their titles.
-"""
-import csv
 import requests
 import sys
+import csv
 
-# No execution of this file when imported
 if __name__ == "__main__":
-    
-# Pass employee id on command line
-    id = sys.argv[1]
-
-# APIs 
-    userTodoURL = "https://jsonplaceholder.typicode.com/users/{}/todos".format(id)
-    userProfile = "https://jsonplaceholder.typicode.com/users/{}".format(id)
-
-# Make requests on APIs
-    todoResponse = requests.get(userTodoURL)
-    profileResponse = requests.get(userProfile)
-
-# Parse responses and store in variables
-    todoJson_Data = todoResponse.json()
-    profileJson_Data = profileResponse.json()
-
-#Get employee information
-    employeeName = profileJson_Data['username']
-
-    dataList = []
-
-    for data in todoJson_Data:
-        dataDict = {"userId":data['userId'], "name":employeeName, "completed":data['completed'], "title":data['title']}
-        dataList.append(dataDict)
-
-    # Specify the CSV file path
-    csv_file_path = '{}.csv'.format(todoJson_Data[0]['userId'])
-
-    # Define the field names (column headers)
-    fieldnames = ["userId", "name", "completed", "title"]
-
-    # Open the CSV file in write mode
-    with open(csv_file_path, 'w', newline='') as csv_file:
-        # Create a CSV writer
-        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
-
-        # Write the data rows
-        for row in dataList:
-            csv_writer.writerow(row)
+    # Check if the script receives an integer as a parameter
+    if len(sys.argv) == 2 and sys.argv[1].isdigit():
+        # Get the employee ID from the parameter
+        employee_id = sys.argv[1]
+        # Define the base URL for the API
+        base_url = "https://jsonplaceholder.typicode.com/users/"
+        # Get the employee details from the API
+        employee = requests.get(base_url + employee_id).json()
+        # Get the employee name and username from the details
+        employee_name = employee.get("name")
+        employee_username = employee.get("username")
+        # Get the employee TODO list from the API
+        todos = requests.get(base_url + employee_id + "/todos").json()
+        # Create a list to store the records of tasks that are owned by this employee
+        records = []
+        # Loop through the TODO list and create a record for each task
+        for todo in todos:
+            # Get the task completed status and title from the task
+            task_completed = todo.get("completed")
+            task_title = todo.get("title")
+            # Create a record as a list of values in this order: user ID, username, task completed status, task title
+            record = [employee_id, employee_username, task_completed, task_title]
+            # Append the record to the records list
+            records.append(record)
+        # Define the file name as USER_ID.csv
+        file_name = employee_id + ".csv"
+        # Open the file in write mode
+        with open(file_name, "w") as file:
+            # Create a csv writer object
+            writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+            # Loop through the records list and write each record to the file
+            for record in records:
+                writer.writerow(record)
+    else:
+        # If the script does not receive an integer as a parameter, print an error message and exit
+        print("Usage: ./1-export_to_CSV.py <employee ID>")
+        sys.exit(1)
